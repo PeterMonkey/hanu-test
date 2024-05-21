@@ -12,9 +12,10 @@
 }
 
 .card::before, .card::after {
-    content: attr(data-value) attr(data-suit);
-    font-size: 27px;
+    content: attr(data-value) "\A" attr(data-suit);
+    font-size: 35px;
     position: absolute;
+    white-space: pre;
 }
 
 .card::before {

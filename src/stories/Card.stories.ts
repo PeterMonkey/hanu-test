@@ -17,7 +17,7 @@ export const A: Story = {
     args: {
         numb: 1,
         suit: Suit['heart']
-    }
+    },
 }
 
 export const Two: Story = {

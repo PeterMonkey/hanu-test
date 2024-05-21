@@ -1,10 +1,6 @@
 import styles from './style.module.css'
 import { Suit } from '../../enums/suit.enum'
-
-type PropsCard = {
-    numb: number;
-    suit: Suit;
-}
+import { PropsCard } from '../../types/card.types';
 
 const Card = ({numb, suit}: PropsCard) => {
 
@@ -31,7 +27,8 @@ if(numb <= 10) {
 
     return (
         <div className={styles.card} data-suit={suit} data-value={
-            numb <= 10 ? numb :
+            numb === 1 ? 'A': 
+            numb <= 10 && numb > 1 ? numb :
             numb === 11 ? 'J' :
             numb === 12 ? 'Q' :
             numb === 13 ? 'K' : null
