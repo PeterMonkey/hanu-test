@@ -5,10 +5,12 @@ import { useContext } from 'react';
 import { MyContext } from '../../context/context';
 
 const Deck = () => {
-    const {tower1, tower2, tower3} = useContext(MyContext)
+    const {state, removeItem} = useContext(MyContext)
+    const {tower1, tower2, tower3} = state
 
     console.log(tower1)
     console.log(tower2)
+    console.log(tower3)
     return (
         <div className={styles.towers}>
             {
