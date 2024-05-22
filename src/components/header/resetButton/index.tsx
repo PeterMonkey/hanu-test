@@ -1,8 +1,11 @@
 import styles from './style.module.css'
 
-const ResetButton = () => {
+const ResetButton = ({fn}:{fn:()=>void}) => {
     return(
-        <button className={styles.reset}>
+        <button 
+        className={styles.reset}
+        onClick={fn}
+        >
             <svg 
             fill="none" 
             stroke-width="2" 

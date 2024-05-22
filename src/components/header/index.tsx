@@ -1,12 +1,18 @@
 import styles from './style.module.css';
 import ResetButton from './resetButton';
 import TargetValue from './targetValue';
+import { useContext } from 'react';
+import { MyContext } from '../../context/context';
 
 const Header = () => {
+
+    const {resetDeck, target} = useContext(MyContext)
+
+    console.log(target)
     return(
         <div className={styles.header}>
-            <TargetValue value='4'/>
-            <ResetButton/>
+            <TargetValue value={target}/>
+            <ResetButton fn={resetDeck}/>
         </div>
     )
 }

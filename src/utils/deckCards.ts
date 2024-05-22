@@ -42,4 +42,4 @@ function shuffleArray<T>(array: Array<T>) {
 
   const shuffleDeck = shuffleArray(deckCards)
 
-export {shuffleDeck}
+export {shuffleDeck, shuffleArray}
