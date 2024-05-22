@@ -6,11 +6,13 @@ export interface State {
     tower1State: Card[],
     tower2State: Card[],
     tower3State: Card[],
-    target: string,
+    target: number,
+    win: boolean,
     removeFirstDeck: (item: Card) => void,
     removeSecondDeck: (item: Card) => void,
     removeThirdDeck: (item: Card) => void,
     resetDeck: () => void
+    isEqual: (tower1:number, tower2:number, tower3:number) => void
 }
 
 // export const initialState:State = {
@@ -24,11 +26,13 @@ export const MyContext = createContext<State>({
     tower1State: shuffleDeck, 
     tower2State: [], 
     tower3State: [],
+    win: false,
     target: randomValue(),
     removeFirstDeck: (item: Card) => {},
     removeSecondDeck: (item: Card) => {},
     removeThirdDeck: (item: Card) => {},
-    resetDeck: () => {}
+    resetDeck: () => {},
+    isEqual: (tower1:number, tower2:number, tower3:number) => {}
 })
 
 
@@ -37,7 +41,7 @@ type ChildrenProp = {
 }
 
 function randomValue() {
-    const arrayValues = ['A', '2', '3', '4']
+    const arrayValues = [1, 2, 3, 4]
     const indice = Math.floor(Math.random() * arrayValues.length)
     return arrayValues[indice]
 }
@@ -49,6 +53,7 @@ export const ContextProvider = ({children}: ChildrenProp) => {
     const [tower2State, setTower2State] = useState<Card[]>([])
     const [tower3State, setTower3State] = useState<Card[]>([])
     const [target, setTarget] = useState(randomValue())
+    const [win, setWin] = useState(false)
 
     // estructura de stack and queue
     const removeFirstDeck = (item: Card) => {
@@ -72,6 +77,13 @@ export const ContextProvider = ({children}: ChildrenProp) => {
         setTower2State([])
         setTower3State([])
         setTarget(randomValue())
+        setWin(false)
+    }
+
+    const isEqual = (tower1:number, tower2:number, tower3:number) => {
+        if(tower1 === tower2 && tower2 === tower3 && tower1 === target ) {
+            setWin(true)
+        }
     }
 
     return (
@@ -83,7 +95,9 @@ export const ContextProvider = ({children}: ChildrenProp) => {
             removeSecondDeck,
             removeThirdDeck,
             resetDeck,
-            target
+            isEqual,
+            target,
+            win
         }}>
             {children}
         </MyContext.Provider>

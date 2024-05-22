@@ -11,7 +11,7 @@ const Header = () => {
     console.log(target)
     return(
         <div className={styles.header}>
-            <TargetValue value={target}/>
+            <TargetValue value={target.toString()}/>
             <ResetButton fn={resetDeck}/>
         </div>
     )

@@ -11,9 +11,11 @@ const Deck = () => {
         tower3State, 
         removeFirstDeck,
         removeSecondDeck,
-        removeThirdDeck
+        removeThirdDeck,
+        isEqual
     } = useContext(MyContext)
 
+    isEqual(tower1State[0]?.numb, tower2State[0]?.numb, tower3State[0]?.numb)
     console.log(tower1State)
     console.log(tower2State)
     console.log(tower3State)

@@ -4,7 +4,9 @@ const TargetValue = ({value}:{value: string}) => {
     return(
         <div className={styles.target}>
             <p>Valor a ordenar:</p>
-            <div className={styles.value}>{value}</div>
+            <div className={styles.value}>{
+            value === '1' ? 'A' : value
+            }</div>
         </div>
     )
 }

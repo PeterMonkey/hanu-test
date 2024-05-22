@@ -1,6 +1,7 @@
 import './App.css'
 import Deck from './components/deck'
 import Header from './components/header'
+import WinMessage from './components/winMessage'
 import { ContextProvider } from './context/context'
 
 function App() {
@@ -9,6 +10,7 @@ function App() {
     <ContextProvider>
       <Header/>
       <Deck/>
+      <WinMessage/>
     </ContextProvider>
   )
 }
