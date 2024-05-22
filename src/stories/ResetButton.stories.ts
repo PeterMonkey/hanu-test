@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import ResetButton from '../components/resetButton';
+import ResetButton from '../components/header/resetButton';
 
 const meta = {
     title: 'Project/ResetButton',
