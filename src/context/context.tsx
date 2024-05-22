@@ -1,13 +1,14 @@
 import {createContext, ReactNode, useState } from "react";
 import { shuffleDeck } from "../utils/deckCards";
 import { Card } from "../types/card.types";
-import { tower1Reducer } from "./reducers";
 
 export interface State {
     tower1State: Card[],
     tower2State: Card[],
     tower3State: Card[],
-    removeFirstDeck: (item: Card) => void
+    removeFirstDeck: (item: Card) => void,
+    removeSecondDeck: (item: Card) => void,
+    removeThirdDeck: (item: Card) => void
 }
 
 // export const initialState:State = {
@@ -21,7 +22,9 @@ export const MyContext = createContext<State>({
     tower1State: shuffleDeck, 
     tower2State: [], 
     tower3State: [],
-    removeFirstDeck: (item: Card) => {}
+    removeFirstDeck: (item: Card) => {},
+    removeSecondDeck: (item: Card) => {},
+    removeThirdDeck: (item: Card) => {}
 })
 
 
@@ -34,19 +37,30 @@ export const ContextProvider = ({children}: ChildrenProp) => {
     const [tower2State, setTower2State] = useState<Card[]>([])
     const [tower3State, setTower3State] = useState<Card[]>([])
 
+    // estructura de stack and queue
     const removeFirstDeck = (item: Card) => {
         setTower1State((prev) => prev.slice(1))
         setTower2State((prev) => [item, ...prev])
     }
 
-    
+    const removeSecondDeck = (item: Card) => {
+        setTower2State((prev) => prev.slice(1))
+        setTower3State((prev) => [item, ...prev])
+    }
+
+    const removeThirdDeck = (item: Card) => {
+        setTower3State((prev) => prev.slice(1))
+        setTower1State((prev) => [...prev, item])
+    }
 
     return (
         <MyContext.Provider value={{
             tower1State, 
             tower2State, 
             tower3State,
-            removeFirstDeck
+            removeFirstDeck,
+            removeSecondDeck,
+            removeThirdDeck
         }}>
             {children}
         </MyContext.Provider>
