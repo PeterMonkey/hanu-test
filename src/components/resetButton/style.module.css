@@ -1,0 +1,17 @@
+.reset {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    width: 200px;
+    height: 30px;
+    font-weight: 800;
+    font-size: 15px;
+    background-color: #BEE3F1;
+    border: solid 1px #ADDFF2;
+    border-radius: 5px;
+}
+
+.svg {
+    font-size: 1.5em;
+}
