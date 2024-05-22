@@ -1,13 +1,20 @@
 import {createContext, ReactNode } from "react";
 import { shuffleDeck } from "../utils/deckCards";
+import { Card } from "../types/card.types";
 
-const State = {
+interface State {
+    tower1: Card[],
+    tower2: Card[],
+    tower3: Card[]
+}
+
+export const state:State = {
     tower1: shuffleDeck,
-    tohwer2: [],
+    tower2: [],
     tower3: []
 }
 
-export const MyContext = createContext({})
+export const MyContext = createContext(state)
 
 
 type ChildrenProp = {
@@ -16,7 +23,7 @@ type ChildrenProp = {
 
 export const ContextProvider = ({children}: ChildrenProp) => {
     return (
-        <MyContext.Provider value={{}}>{children}</MyContext.Provider>
+        <MyContext.Provider value={state}>{children}</MyContext.Provider>
     )
 
 }

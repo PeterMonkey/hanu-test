@@ -1,16 +1,11 @@
 import { Suit } from "../enums/suit.enum";
+import { Card } from "../types/card.types";
 
 const club = Suit.club;
 const heart = Suit.heart;
 const spade = Suit.spade;
 const diamond = Suit.diamond;
 
-//tipo Card
-type Card = {
-    id: number;
-    numb: number;
-    suit: Suit
-}
 
 //array con los valores y palos 
 const arraySuits = [club, heart, spade, diamond];

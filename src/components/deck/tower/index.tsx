@@ -1,11 +1,11 @@
 import styles from './style.module.css';
 import Card from '../../card';
-import { PropsCard } from '../../../types/card.types';
+import { PropsTower } from '../../../types/tower.types';
 
-const Tower = ({numb, suit}:PropsCard) => {
+const Tower = ({numb, suit, isEmpty}:PropsTower) => {
     return (
         <div className={styles.tower}>
-            <Card numb={numb} suit={suit}/>
+            {isEmpty? <Card numb={numb} suit={suit}/> : <span></span>}
         </div>
     )
 }
