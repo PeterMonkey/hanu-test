@@ -8,8 +8,12 @@ const diamond = Suit.diamond;
 
 
 //array con los valores y palos 
-const arraySuits = [club, heart, spade, diamond];
-const values = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
+// const arraySuits = [club, heart, spade, diamond];
+// const values = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
+
+// configuracion inicial de naipes:Pica, Diamante y Corazón con los valores A, 2, 3 y 4 
+const arraySuits = [heart, spade, diamond];
+const values = [1, 2, 3, 4]
 
 const deckCards: Card[] = []
 
